@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <h2>Calculator - Method 1 (Direct Buttons)</h2>
+
+    Number 1:
+    <input type="text" id="num1"><br><br>
+
+    Number 2:
+    <input type="text" id="num2"><br><br>
+
+    <button onclick="calculateDirect('+')">Add</button>
+    <button onclick="calculateDirect('-')">Subtract</button>
+    <button onclick="calculateDirect('*')">Multiply</button>
+    <button onclick="calculateDirect('/')">Divide</button>
+
+    <p>Result: <span id="result1"></span></p>
+
+    <hr>
+
+    <h2>Calculator - Method 2 (Dropdown)</h2>
+
+    Number 1:
+    <input type="text" id="num3"><br><br>
+
+    Number 2:
+    <input type="text" id="num4"><br><br>
+
+    Operation:
+    <select id="operation2">
+        <option value="+">Add (+)</option>
+        <option value="-">Subtract (-)</option>
+        <option value="*">Multiply (*)</option>
+        <option value="/">Divide (/)</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="calculateDropdown()">Submit</button>
+
+    <p>Result: <span id="result2"></span></p>
+
+
+    <script>
+
+        function calculateDirect(op) {
+
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+
+            let result;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                result = "Enter valid numbers";
+            }
+            else if (op === "+") {
+                result = n1 + n2;
+            }
+            else if (op === "-") {
+                result = n1 - n2;
+            }
+            else if (op === "*") {
+                result = n1 * n2;
+            }
+            else if (op === "/") {
+
+                if (n2 === 0) {
+                    result = "Cannot divide by zero";
+                }
+                else {
+                    result = n1 / n2;
+                }
+            }
+
+            document.getElementById("result1").innerText = result;
+        }
+
+
+        function calculateDropdown() {
+
+            let n1 = parseFloat(document.getElementById("num3").value);
+            let n2 = parseFloat(document.getElementById("num4").value);
+
+            let op = document.getElementById("operation2").value;
+
+            let result;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                result = "Enter valid numbers";
+            }
+            else if (op === "+") {
+                result = n1 + n2;
+            }
+            else if (op === "-") {
+                result = n1 - n2;
+            }
+            else if (op === "*") {
+                result = n1 * n2;
+            }
+            else if (op === "/") {
+
+                if (n2 === 0) {
+                    result = "Cannot divide by zero";
+                }
+                else {
+                    result = n1 / n2;
+                }
+            }
+
+            document.getElementById("result2").innerText = result;
+        }
+
+    </script>
+
+</body>
+</html>
