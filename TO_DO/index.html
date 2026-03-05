@@ -102,7 +102,6 @@
 
         let tasks = [];
 
-        // Load tasks from localStorage
         window.onload = function () {
 
             const storedTasks = localStorage.getItem("tasks");
@@ -113,8 +112,6 @@
             }
         };
 
-
-        // Add Task
         function addTask() {
 
             const taskText = taskInput.value.trim();
@@ -133,8 +130,6 @@
             displayTasks();
         }
 
-
-        // Display Tasks
         function displayTasks() {
 
             taskList.innerHTML = "";
@@ -156,8 +151,6 @@
             });
         }
 
-
-        // Edit Task
         function editTask(index) {
 
             const newTask = prompt("Edit your task:", tasks[index]);
@@ -173,7 +166,6 @@
         }
 
 
-        // Delete Task
         function deleteTask(index) {
 
             tasks.splice(index, 1);
@@ -184,7 +176,6 @@
         }
 
 
-        // Save to LocalStorage
         function saveTasks() {
 
             localStorage.setItem("tasks", JSON.stringify(tasks));
