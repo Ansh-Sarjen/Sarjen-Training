@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+</head>
+<body>
+    <p id="myarea">
+
+    </p>
+    <a href="#" onclick="logout()">Logout</a>
+    <script>
+        let message = document.getElementById("myarea")
+        let user = localStorage.getItem("username")
+        if (user) {
+            message.innerHTML = "Hii " + user
+        } else {
+            window.location.href = 'login.html'
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = 'login.html'
+        }
+    </script>
+</body>
+</html>

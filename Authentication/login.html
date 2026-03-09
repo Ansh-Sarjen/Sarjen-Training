@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <label for="">Username:</label>
+        <input type="text" id="username">
+        <label for="">Password:</label>
+        <input type="password" id="password"><br>
+        <button onclick="login()">Submit</button>
+        <a href="forgot_password.html">Forgot Password</a>
+    </div>
+    <script>
+        let username = document.getElementById("username")
+        let password = document.getElementById("password")
+        let user = localStorage.getItem("username")
+        let pass = localStorage.getItem("password")
+        function login(){
+            if(username.value == user && password.value == pass){
+                window.location.href = 'welcome.html'
+            } else {
+                alert("Invalid username or password!")
+            }
+        }
+    </script>
+</body>
+
+</html>

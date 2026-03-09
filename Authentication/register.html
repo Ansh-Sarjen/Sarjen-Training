@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <label for="">Username:</label>
+        <input type="text" id="username">
+        <label for="">Password:</label>
+        <input type="password" id="password">
+        <label for="">Confirm Password</label>
+        <input type="password" id="confirm_password">
+        <button onclick="login()">Register</button>
+    </div>
+    <script>
+        let user_name = document.getElementById("username")
+        let password = document.getElementById("password")
+        let confirm_password = document.getElementById("confirm_password")
+
+        function login() {
+
+            if (!user_name.value.trim() || !password.value.trim() || !confirm_password.value.trim()) {
+                alert("All fields are required!");
+                return;
+            }
+            else if (password.value == confirm_password.value) {
+                window.location.href = 'welcome.html';
+                localStorage.setItem("username", user_name.value);
+                localStorage.setItem("password", password.value);
+            }
+            else {
+                alert("The password and confirm Password should be same!")
+            }
+        }
+    </script>
+</body>
+
+</html>
